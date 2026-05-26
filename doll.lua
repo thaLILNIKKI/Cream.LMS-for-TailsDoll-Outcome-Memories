@@ -247,7 +247,7 @@ end
 
 -- custom sounds..
 local function loadCustomAsset(fileName)
-    local cachePath = "cache/jubilevoicelines/" .. fileName
+    local cachePath = "cache/cream-on-doll/" .. fileName
     if isfile(cachePath) then return getcustomasset(cachePath) end
     local success, result = pcall(
         function()
