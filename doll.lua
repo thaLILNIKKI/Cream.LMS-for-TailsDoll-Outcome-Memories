@@ -284,8 +284,8 @@ local assigns = {
     [112879248941055] = loadCustomAsset("LastLifeChase.mp3"),
     [131820864449998] = loadCustomAsset("Retract.mp3"), -- giggle or smth here ~
     [73636680793269] = "rbxassetid://77110140707717",  -- basic Swing
-    [108753423324802] = "rbxassetid://129707701166974", -- NMI Swing XD
-    [134998846301914] = "rbxassetid://129707701166974", -- NMI again
+    [108753423324802] = "rbxassetid://77110140707717",  -- basic Swing
+    [134998846301914] = "rbxassetid://77110140707717",  -- basic Swing
 }
 
 game.DescendantAdded:Connect(function(desc)
