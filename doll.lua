@@ -226,7 +226,7 @@ local function applyToPlayer(playerName)
 	
 	local syncConn
 	syncConn = RunService.Heartbeat:Connect(function()
-		if not playerModel.Parent then
+		if not plrModel.Parent then
 			resetState(playerName)
 			return
 		end
@@ -247,14 +247,14 @@ local function removeFromPlayer(playerName)
 	local data = activeData[playerName]
 	if not data then return end
 	
-	local playerModel = workspace:FindFirstChild("Players") and workspace.Players:FindFirstChild(playerName)
+	local plrModel = workspace:FindFirstChild("Players") and workspace.Players:FindFirstChild(playerName)
 	local playerObj = Players:FindFirstChild(playerName)
 	local standardChar = playerObj and playerObj.Character
-	local defaultFolder = playerModel and playerModel:FindFirstChild("Default")
+	local defaultFolder = plrModel and plrModel:FindFirstChild("Default")
 	
 	if defaultFolder then showDescendants(defaultFolder) end
 	if standardChar then showDescendants(standardChar) end
-	if playerModel then showDescendants(playerModel) end
+	if plrModel then showDescendants(plrModel) end
 	
 	resetState(playerName)
 end
@@ -292,8 +292,8 @@ end
 
 Players.PlayerAdded:Connect(function(player)
 	player.CharacterAdded:Connect(function(char)
-		local playerModel = workspace:FindFirstChild("Players") and workspace.Players:FindFirstChild(player.Name)
-		if playerModel and playerModel:GetAttribute("Character") == "TailsDoll" then
+		local plrModel = workspace:FindFirstChild("Players") and workspace.Players:FindFirstChild(player.Name)
+		if plrModel and plrModel:GetAttribute("Character") == "TailsDoll" then
 			applyToPlayer(player.Name)
 		end
 	end)
