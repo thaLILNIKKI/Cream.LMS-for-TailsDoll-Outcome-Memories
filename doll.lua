@@ -1,8 +1,4 @@
-warn("asd")
-
-local Players			= game:GetService("Players")
-local RunService		= game:GetService("RunService")
-local ReplicatedStorage	= game:GetService("ReplicatedStorage")
+print("[Cream.LMS x TailsDoll] Now loading... Made by lil2kki <3")
 
 local function remapMotors(model)
 	local function find(name)
@@ -44,7 +40,7 @@ local function getSkinModel()
 	if _skinModelCache and _skinModelCache.Parent then
 		return _skinModelCache
 	end
-	local chars = ReplicatedStorage:FindFirstChild("Characters", true)
+	local chars = game:GetService("ReplicatedStorage"):FindFirstChild("Characters", true)
 	if not chars then return nil end
 	local result = chars:FindFirstChild("Survivors", true)
 	result = result and result:FindFirstChild("Cream", true)
@@ -127,7 +123,7 @@ local function applyToPlayer(plrModel)
 	local hrpOffset = Vector3.new(0, -1, 0)
 
 	local syncConn
-	syncConn = RunService.Heartbeat:Connect(function()
+	syncConn = game:GetService("RunService").Heartbeat:Connect(function()
 		if not mdl or not mdl.Parent then
 			syncConn:Disconnect()
 			warn("pizdec")
