@@ -85,8 +85,9 @@ local function customizeEyes(model)
 	if eye2 then setupEye(eye2, eye2.Size) end
 end
 
-local function applyToPlayer(plrModel)
-	if plrModel:GetAttribute("Character") ~= "TailsDoll" then return end
+local function applyToPlayer(playerName)
+	local plrModel = workspace.Players:FindFirstChild(playerName)
+	if not plrModel then return end
 
 	local hrp = plrModel:FindFirstChild("HumanoidRootPart", true)
 	if not hrp then return end
@@ -150,11 +151,11 @@ end
 local function onModelAdded(model)
 	if not model:IsA("Model") then return end
 	task.wait(1)
-    applyToPlayer(model)
+    applyToPlayer(model.Name)
 	model.AttributeChanged:Connect(function(attr)
 		if attr == "Character" then
 			task.wait(1)
-			applyToPlayer(model) 
+			applyToPlayer(model.Name) 
 		end
 	end)
 end
