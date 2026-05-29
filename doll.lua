@@ -97,7 +97,10 @@ local function applyToPlayer(playerName)
 
 	if plrModel:GetAttribute("Character") ~= "TailsDoll" then return end
 
-	local hrp = plrModel:FindFirstChild("HumanoidRootPart", true)
+	local source = plrModel:FindFirstChild("Default") or Players[playerName].Skin
+	if not source then return end
+
+	local hrp = source:FindFirstChild("HumanoidRootPart")
 	if not hrp then return end
 
 	-- hide original visuals
